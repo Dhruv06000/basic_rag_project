@@ -1,15 +1,13 @@
-PHASE 1 — Build a Basic RAG (Minimal but Clean)
+PHASE 1 — Build a Basic RAG 
 
-Start SIMPLE. Don’t build hybrid yet.
+🏗 STEP 1 — Organize Project Structure
 
-Step 1 — Project Structure
-
-rag_project/
+Basic_Rag/
 │
 ├── data/                  # your 20 ML .txt files
-├──embeddings/             # to store embedding of knowlage base
-├── embed.py               # creates embeddings
-├── retriever.py           # semantic search
+├── embeddings/            # to store embedding of knowlage base
 ├── rag.py                 # full pipeline
+├── embed.py               # creates embeddings
+├── retrieve.py            # semantic search
 ├── llm.py                 # Connect to an LLM
 └── requirements.txt
