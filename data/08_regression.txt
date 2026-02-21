@@ -1,0 +1,5 @@
+Regression is a supervised learning task used to predict continuous numerical values. Unlike classification, outputs are real numbers.
+
+Linear regression is one of the simplest regression techniques. It models the relationship between input variables and output using a straight-line equation.
+
+Regression is used in forecasting, price prediction, and trend analysis.

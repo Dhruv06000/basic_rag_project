@@ -1,0 +1,7 @@
+Supervised learning is a machine learning approach where the algorithm learns from labelled data. Each training example contains input data along with the correct output. The goal is to learn a mapping from inputs to outputs so that the model can make accurate predictions on new, unseen data.
+
+Supervised learning problems are generally divided into two main categories: classification and regression. In classification tasks, the output belongs to a limited set of categories, such as spam or not spam. In regression tasks, the output is a continuous numerical value, such as predicting house prices.
+
+The training process involves optimizing a mathematical model to minimize prediction errors. The algorithm adjusts its parameters using optimization methods such as gradient descent.
+
+Supervised learning is widely used in email filtering, medical diagnosis, sentiment analysis, and image recognition. Its performance depends heavily on the quality and quantity of labelled training data.

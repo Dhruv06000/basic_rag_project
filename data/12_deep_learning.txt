@@ -1,0 +1,11 @@
+Deep learning is a subset of machine learning that uses neural networks with many hidden layers. The term “deep” refers to the depth of the network, meaning the number of layers between input and output.
+
+Deep learning models automatically learn hierarchical feature representations. Lower layers detect simple patterns, such as edges in images or basic sounds in speech. Higher layers combine these patterns into more complex structures, such as objects or words.
+
+One major advantage of deep learning is that it reduces the need for manual feature engineering. Instead of designing features by hand, the model learns useful representations directly from raw data.
+
+Deep learning has achieved major breakthroughs in computer vision, natural language processing, and speech recognition. Convolutional neural networks are commonly used for image tasks, while recurrent and transformer-based models are used in language processing.
+
+Training deep learning models requires large datasets and significant computational power. Graphics processing units (GPUs) and specialized hardware have made it possible to train very deep networks efficiently.
+
+Deep learning systems are used in autonomous vehicles, medical image analysis, chatbots, recommendation systems, and many other applications.

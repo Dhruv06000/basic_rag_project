@@ -1,0 +1,9 @@
+Overfitting occurs when a model learns patterns specific to the training data rather than general patterns that apply to new data. As a result, it performs well on training data but poorly on unseen data.
+
+Overfitting often happens when models are too complex relative to the amount of data available. Deep trees, very flexible neural networks, or too many parameters can cause overfitting.
+
+Common techniques to reduce overfitting include regularization, cross-validation, pruning decision trees, dropout in neural networks, and increasing training data.
+
+Detecting overfitting involves comparing training accuracy with validation accuracy. Large differences often indicate poor generalization.
+
+Preventing overfitting is critical for building reliable machine learning systems.

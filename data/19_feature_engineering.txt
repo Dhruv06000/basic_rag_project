@@ -1,0 +1,9 @@
+Feature engineering is the process of selecting, modifying, or creating input variables to improve model performance.
+
+Feature selection involves choosing the most relevant features from the dataset. Feature extraction transforms raw data into new features, such as extracting statistical properties from signals.
+
+Good features improve model accuracy and reduce overfitting. Poor features can limit performance regardless of the algorithm used.
+
+Feature engineering often requires domain knowledge and experimentation.
+
+In deep learning, feature engineering is often automated, as neural networks learn hierarchical representations directly from raw data.

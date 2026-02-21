@@ -1,0 +1,9 @@
+Support vector machines (SVMs) are supervised learning models used for classification and regression. The main idea is to find a decision boundary, called a hyperplane, that separates data points with the largest possible margin.
+
+The margin is the distance between the hyperplane and the closest data points from each class. These closest points are called support vectors. Maximizing the margin improves generalization.
+
+In cases where data is not linearly separable, SVMs use kernel functions to map data into higher-dimensional space. Common kernels include linear, polynomial, and radial basis function kernels.
+
+SVMs are effective in high-dimensional spaces and are robust to overfitting when properly regularized.
+
+They are commonly used in text classification, image recognition, and bioinformatics.

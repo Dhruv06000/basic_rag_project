@@ -1,0 +1,7 @@
+Unsupervised learning involves training algorithms on data that does not contain labelled outputs. The system must discover patterns, structures, or relationships within the data on its own.
+
+One common application of unsupervised learning is clustering, where similar data points are grouped together. Another is dimensionality reduction, which simplifies data while preserving important information.
+
+Unlike supervised learning, there is no predefined correct answer. Instead, the algorithm identifies hidden structures based on similarities or statistical properties.
+
+Unsupervised learning is useful in market segmentation, anomaly detection, feature learning, and exploratory data analysis.

@@ -1,0 +1,7 @@
+Reinforcement learning is a type of machine learning where an agent interacts with an environment and learns by receiving rewards or penalties based on its actions.
+
+The goal of the agent is to maximize cumulative reward over time. The environment is often modeled as a decision process where each action influences future states.
+
+Unlike supervised learning, reinforcement learning does not require labelled input-output pairs. Instead, the agent explores and learns from feedback signals.
+
+Reinforcement learning is used in robotics, game playing, recommendation systems, and autonomous vehicles. It was notably used in systems like AlphaGo to achieve superhuman performance.

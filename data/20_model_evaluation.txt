@@ -1,0 +1,9 @@
+Model evaluation measures how well a machine learning model performs on unseen data.
+
+Common metrics for classification include accuracy, precision, recall, and F1-score. Accuracy measures overall correctness. Precision measures how many predicted positives are correct. Recall measures how many actual positives are correctly identified. F1-score balances precision and recall.
+
+For regression tasks, metrics such as mean squared error and mean absolute error are used.
+
+Cross-validation is a common technique for reliable evaluation. It splits data into multiple subsets to test model stability.
+
+Proper evaluation ensures that a model generalizes well and avoids misleading performance estimates.

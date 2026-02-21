@@ -1,0 +1,14 @@
+History
+The term “machine learning” was coined in 1959 by Arthur Samuel, a researcher at IBM. Samuel developed one of the first self-improving programs, a checkers-playing system that learned from experience and improved its strategy over time.
+
+However, the foundations of machine learning go back even further. In 1949, psychologist Donald Hebb proposed a theory about how neurons in the brain strengthen their connections through repeated activation. This idea later influenced artificial neural networks.
+
+In the 1950s and 1960s, early experiments explored pattern recognition and adaptive systems. Researchers such as Walter Pitts and Warren McCulloch developed mathematical models of artificial neurons. During this period, interest in creating machines that could mimic human learning increased significantly.
+
+In the 1970s and 1980s, research shifted toward statistical methods and practical applications. Pattern recognition and classification became major focus areas. Neural networks experienced both periods of excitement and reduced interest due to computational limitations.
+
+The 1990s saw a rise in statistical learning methods such as support vector machines and decision trees. As computing power increased and larger datasets became available, machine learning techniques became more practical and effective.
+
+A major breakthrough occurred in the 2010s with the rise of deep learning. Neural networks with many layers achieved impressive results in computer vision, speech recognition, and natural language processing. In 2014, generative adversarial networks introduced realistic data generation methods. In 2016, AlphaGo defeated top human players in the game of Go using reinforcement learning techniques.
+
+Today, machine learning continues to evolve rapidly and plays a central role in artificial intelligence research and applications.

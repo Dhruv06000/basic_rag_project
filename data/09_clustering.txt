@@ -1,0 +1,5 @@
+Clustering is an unsupervised learning method that groups similar data points together.
+
+One popular algorithm is k-means, which partitions data into k clusters by minimizing within-cluster variance.
+
+Clustering is used in customer segmentation, document grouping, and image compression.

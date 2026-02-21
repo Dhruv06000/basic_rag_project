@@ -1,0 +1,11 @@
+Neural networks are machine learning models inspired by the structure of the human brain. They consist of layers of interconnected nodes called neurons. Each neuron receives input values, processes them, and produces an output that is passed to the next layer.
+
+A neural network typically contains three types of layers: an input layer, one or more hidden layers, and an output layer. The input layer receives raw data such as numbers, pixels, or text features. Hidden layers perform mathematical transformations, and the output layer produces the final prediction.
+
+Each connection between neurons has an associated weight. These weights determine how strongly one neuron influences another. During training, the network adjusts these weights to minimize prediction error. This adjustment is usually done using an optimization method such as gradient descent.
+
+Neurons apply an activation function to their weighted inputs. Common activation functions include ReLU, sigmoid, and tanh. Activation functions introduce non-linearity, which allows neural networks to model complex patterns.
+
+Neural networks are powerful because they can approximate complex mathematical functions. They are widely used in image recognition, speech processing, recommendation systems, and pattern detection. For example, in image classification, a neural network learns to identify features such as edges, shapes, and textures.
+
+The flexibility and scalability of neural networks make them foundational to modern artificial intelligence systems.

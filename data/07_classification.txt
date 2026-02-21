@@ -1,0 +1,7 @@
+Classification is a supervised learning task where the output variable belongs to a fixed set of categories. The goal is to assign input data to the correct class.
+
+Binary classification involves two classes, such as spam vs not spam. Multi-class classification involves more than two categories.
+
+Common algorithms include logistic regression, decision trees, support vector machines, and neural networks.
+
+Classification is widely used in fraud detection, medical diagnosis, email filtering, and image recognition.

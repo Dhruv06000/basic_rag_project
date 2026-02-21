@@ -1,0 +1,5 @@
+Dimensionality reduction reduces the number of features while preserving important information.
+
+Principal Component Analysis (PCA) is a common method that transforms data into a smaller set of components capturing maximum variance.
+
+It improves computational efficiency and reduces overfitting.

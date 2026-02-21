@@ -1,0 +1,9 @@
+Gradient descent is an optimization algorithm used to minimize a loss function in machine learning models. The loss function measures the difference between predicted outputs and actual values.
+
+The algorithm computes the gradient, which indicates the direction of steepest increase of the loss function. To minimize error, the model updates parameters in the opposite direction of the gradient.
+
+The update rule involves subtracting the product of the learning rate and the gradient from the current parameters. The learning rate controls the step size. If it is too large, training may become unstable. If too small, learning may be slow.
+
+There are several variations, including batch gradient descent, stochastic gradient descent, and mini-batch gradient descent. These differ in how much data is used to compute each update.
+
+Gradient descent is fundamental to training neural networks and many other machine learning models.

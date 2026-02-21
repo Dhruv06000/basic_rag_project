@@ -1,0 +1,11 @@
+Decision trees are supervised learning algorithms used for classification and regression tasks. They model decisions as a tree-like structure consisting of nodes and branches.
+
+The root node represents the starting point of the decision process. Each internal node represents a test on a feature, such as whether a value is greater than a threshold. Branches represent the outcome of the test, and leaf nodes represent final predictions.
+
+Decision trees work by recursively splitting the dataset into smaller subsets. The algorithm selects features that best separate the data based on criteria such as information gain or Gini impurity.
+
+One advantage of decision trees is interpretability. The structure clearly shows how decisions are made, making them easy to understand compared to more complex models.
+
+However, decision trees can overfit the training data if they become too deep. Techniques such as pruning are used to simplify the tree and improve generalization.
+
+Decision trees are widely used in finance, healthcare, and risk assessment because of their simplicity and effectiveness.

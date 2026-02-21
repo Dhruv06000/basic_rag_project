@@ -1,0 +1,11 @@
+Machine learning (ML) is a branch of artificial intelligence that focuses on building systems that can learn from data and improve their performance over time without being explicitly programmed for every task. Instead of writing fixed rules, developers create algorithms that identify patterns in data and make predictions or decisions based on those patterns.
+
+Traditional programming follows a rule-based approach. A programmer writes explicit instructions, and the computer follows them exactly. In contrast, machine learning reverses this process. The developer provides data and expected outcomes, and the algorithm learns the rules automatically. This allows systems to handle complex and uncertain problems that are difficult to solve using fixed logic.
+
+Machine learning is widely used in modern technology. It powers recommendation systems, spam detection, speech recognition, computer vision, fraud detection, medical diagnosis support, and autonomous vehicles. Businesses use machine learning for predictive analytics, customer segmentation, and demand forecasting.
+
+Mathematically, machine learning is built on statistics, probability, and optimization. Many algorithms aim to minimize a loss function, which measures how far predictions are from actual results. By adjusting internal parameters, the algorithm gradually improves its accuracy.
+
+Machine learning systems typically follow a standard process: collecting data, preprocessing it, training a model, evaluating performance, and deploying the model for real-world use. The quality of the data strongly affects the final performance of the system.
+
+As data availability and computing power have increased, machine learning has become one of the most important technologies in modern artificial intelligence.
