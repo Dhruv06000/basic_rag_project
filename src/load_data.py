@@ -1,6 +1,6 @@
 import os
 
-def load_document(folder_path):
+def load_documents(folder_path):
   documents = []
 
   for file in os.listdir(folder_path):
