@@ -1,33 +1,38 @@
+import pickle
 import os
 import numpy as np
 from sentence_transformers import SentenceTransformer
+from config import PROCESSED_PATH, CHUNKS_FILE, EMBEDDINGS_FILE, MODEL_NAME
 
-model_name = 'all-MiniLM-L6-v2'
-model = SentenceTransformer(model_name)
 
-DOC_PATH = 'data/'
-EMBEDDING_PATH = 'embeddings/'
+# Ensure processed folder exists
+os.makedirs(PROCESSED_PATH, exist_ok=True)
 
-documents = []
+# Load saved chunks
+chunks_path = os.path.join(PROCESSED_PATH, CHUNKS_FILE)
 
-for file in os.listdir(DOC_PATH):
-    file_path = os.path.join(DOC_PATH, file)
+with open(chunks_path, "rb") as f:
+    all_chunks = pickle.load(f)
 
-     # Make sure it's a file (not a folder)
-    if os.path.isfile(file_path) and file.endswith('.txt'):
-        with open(file_path, 'r', encoding='utf-8') as f:
-            text = f.read()
-            documents.append(text)
-# Create embeddings for the documents
-doc_embeddings = model.encode(documents)
+print(f"Loaded {len(all_chunks)} chunks.")
 
-# Create embeddings folder if it doesn't exist
-os.makedirs(EMBEDDING_PATH, exist_ok=True)
+# Load model
+model = SentenceTransformer(MODEL_NAME)
 
-# Save inside embeddings folder
-np.save(os.path.join(EMBEDDING_PATH, 'doc_embeddings.npy'), doc_embeddings)
-np.save(os.path.join(EMBEDDING_PATH, 'documents.npy'), documents)
+# Create normalized embeddings
+chunk_embeddings = model.encode(
+    all_chunks,
+    show_progress_bar=True,
+    normalize_embeddings=True
+)
 
-print("Knowledge base embedded successfully ✅")
-print(f"Total documents: {len(documents)}")
-print(f"Embedding shape: {doc_embeddings.shape}")
+# Save embeddings
+embeddings_path = os.path.join(
+    PROCESSED_PATH,
+    EMBEDDINGS_FILE
+)
+
+np.save(embeddings_path, chunk_embeddings)
+
+print("Chunk embeddings saved ✅")
+print(f"Embedding shape: {chunk_embeddings.shape}")

@@ -1,5 +1,3 @@
-# main.py
-
 from src.load_data import load_documents
 from src.chunk import chunk_text
 from config import DOC_PATH, CHUNK_SIZE, OVERLAP
@@ -28,7 +26,7 @@ for i, chunk in enumerate(all_chunks[:5]):
     print(f"Chunk {i+1}:\n{chunk}\n---")
 
 # Step 3: Save chunks for future embedding (optional)
-# import pickle
-# with open("all_chunks.pkl", "wb") as f:
-#     pickle.dump(all_chunks, f)
-# print("Chunks saved to all_chunks.pkl")
+import pickle
+with open("./data/processed/all_chunks.pkl", "wb") as f:
+    pickle.dump(all_chunks, f)
+print("Chunks saved to all_chunks.pkl")
