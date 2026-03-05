@@ -10,7 +10,10 @@ It demonstrates the core workflow of RAG: loading a knowledge base, chunking tex
 simple_rag/
 │
 ├── data/
-│ └── documents.txt
+│ ├── processed/
+│ │      ├──all_chunks.pkl
+│ │      └──chunk_embeddings.npy
+│ └── documents.txt    
 │
 ├── src/
 │ ├── load_data.py
