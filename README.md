@@ -1,83 +1,170 @@
-# Simple RAG System
+# Simple RAG System (From Scratch)
 
-This is a **basic Retrieval-Augmented Generation (RAG) system** built in Python.  
-It demonstrates the core workflow of RAG: loading a knowledge base, chunking text, embedding, retrieving, and generating responses.
+A simple **Retrieval-Augmented Generation (RAG)** pipeline implemented in Python.
+This project demonstrates the core components of a RAG system including document loading, chunking, embedding generation, semantic retrieval, and query processing.
+The goal of this project is to understand how modern AI systems **retrieve relevant knowledge before generating responses**.
 
----
+## Project Overview
 
-## 📂 Folder Structure
+This project implements a basic **RAG workflow** in two stages.
 
+### 1️⃣ Indexing Pipeline (`index.py`)
+
+The indexing pipeline prepares the data for retrieval.
+
+Steps:
+
+1. Load documents from dataset
+2. Split documents into overlapping chunks
+3. Save processed chunks
+4. Generate vector embeddings for chunks
+5. Store embeddings locally
+
+This step is run **only once** (or when the dataset changes).
+
+### 2️⃣ Query Pipeline (`query.py`)
+
+The query pipeline performs semantic search on the indexed data.
+
+Steps:
+
+1. Accept a user query
+2. Convert query into an embedding
+3. Compare with stored embeddings
+4. Retrieve the most relevant chunks using cosine similarity
+5. Display the top results
+
+## Project Structure
+
+```
 simple_rag/
 │
 ├── data/
 │ ├── processed/
 │ │      ├──all_chunks.pkl
 │ │      └──chunk_embeddings.npy
-│ └── documents.txt    
-│
+│ └── raw/
+│      ├──doc1.txt
+│      ├──doc2.txt
+│      └──docn.txt
 ├── src/
-│ ├── load_data.py
-│ ├── chunk.py
-│ ├── embed.py
-│ ├── retrieve.py
-│ └── generate.py
+│   ├── load_data.py
+│   ├── chunk.py
+│   ├── embed.py
+│   ├── retrieve.py
+│   └── generate.py
 │
-├── main.py
+├── index.py
+├── query.py
 ├── config.py
 ├── requirements.txt
 └── README.md
+```
 
----
+## Components
 
-## ⚙️ Project Overview
+1️⃣ Data Loading
 
-The project follows these steps:
+load_data.py loads .txt documents from the dataset directory.
 
-1. **Load knowledge base**  
-   All `.txt` files from the `data/` folder are read and stored as documents.
+2️⃣ Chunking
 
-2. **Chunking**  
-   Each document is split into smaller overlapping chunks using `chunk_text()` function.  
-   Overlap ensures semantic continuity across chunks for better retrieval.
+chunk.py splits documents into fixed-size overlapping chunks.
 
-3. **Embedding** _(to be implemented next)_  
-   Each chunk will be converted into vector embeddings using an embedding model (e.g., SentenceTransformers).
+Chunking helps preserve context during retrieval.
 
-4. **Retrieval** _(to be implemented next)_  
-   Given a user query, the system will retrieve top-k most relevant chunks using cosine similarity.
+Example configuration:
 
-5. **Generation** _(to be implemented next)_  
-   Retrieved chunks will be used as context to generate responses via an LLM.
+- CHUNK_SIZE = 250
+- OVERLAP = 0.1
 
----
+3️⃣ Embedding Generation
 
-## 📌 Features Implemented
+embed.py converts text chunks into vector embeddings using:
 
-- Folder-based knowledge base support (`data/`)
-- Overlap chunking of text documents
-- Clean, modular folder structure
-- Configurable parameters via `config.py`
+- all-MiniLM-L6-v2
 
----
+Embeddings are stored locally as:
 
-## 📌 Next Steps
+- data/processed/chunk_embeddings.npy
 
-1. Implement **embedding creation** (`src/embed.py`)
-2. Implement **retrieval mechanism** (`src/retrieve.py`)
-3. Implement **generation pipeline** (`src/generate.py`)
-4. Connect all modules in `main.py` to form a working RAG system
+4️⃣ Retrieval
 
----
+retrieve.py performs semantic search using cosine similarity.
 
-## 🛠️ Dependencies
+Steps:
 
-- Python 3.10+
-- `sentence-transformers` (for embeddings)
-- `numpy` (for vector operations)
-- `scikit-learn` (for cosine similarity)
+Embed user query
 
-Install dependencies via:
+Compare with stored embeddings
+
+Return top K relevant chunks
+
+Example:
+
+- TOP_K = 3
+
+## Running the Project
+
+### Step 1 — Build the Index
 
 ```bash
+python index.py
+```
+
+This will load documents, create chunks, generate embeddings and save them.
+
+### Step 2 — Start Querying
+
+```bash
+python query.py
+```
+
+Example:
+
+```
+Ask a question (or type 'exit'): What is machine learning?
+
+Top Retrieved Chunks:
+
+Result 1 (score=0.87):
+Machine learning is a branch of artificial intelligence...
+```
+
+## Dependencies
+
+- Python 3.10+
+- sentence-transformers
+- numpy
+- scikit-learn
+
+## Installation
+
+```bash
+git clone https://github.com/YOUR_USERNAME/simple_rag.git
+cd simple_rag
+
+python -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
 ```
+
+## Future Improvements
+
+- Add a Vector Database (FAISS / Chroma / Weaviate)
+- Implement Hybrid Search (BM25 + Semantic Search)
+- Add Re-ranking models
+- Integrate an LLM for answer generation
+- Build a self-evaluating RAG pipeline
+
+## Learning Goals
+
+- Understand how RAG systems work internally
+- Document chunking strategies
+- Embedding generation
+- Vector similarity search
+- Information retrieval for LLMs
+
+## License
+
+This project is for **educational purposes**.
