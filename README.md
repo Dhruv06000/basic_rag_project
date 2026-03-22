@@ -58,7 +58,7 @@ Final Answer
 ```
 
 ---
-
+```
 ## 📁 Project Structure
 
 simple_rag/
@@ -90,7 +90,7 @@ simple_rag/
 └── README.md
 
 ---
-
+```
 ## ⚙️ Components
 
 ### 1️⃣ Data Loading
