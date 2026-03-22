@@ -1,12 +1,14 @@
-# Simple RAG System (From Scratch)
+# 🧠 Simple RAG System (From Scratch)
 
-A simple **Retrieval-Augmented Generation (RAG)** pipeline implemented in Python.
-This project demonstrates the core components of a RAG system including document loading, chunking, embedding generation, semantic retrieval, and query processing.
-The goal of this project is to understand how modern AI systems **retrieve relevant knowledge before generating responses**.
+A simple **Retrieval-Augmented Generation (RAG)** system implemented in Python.
 
-## Project Overview
+This project demonstrates how modern AI systems **retrieve relevant information and use an LLM (Gemini) to generate answers** instead of relying only on pre-trained knowledge.
 
-This project implements a basic **RAG workflow** in two stages.
+---
+
+## 🚀 Project Overview
+
+This project implements a complete **RAG workflow** with two main stages:
 
 ### 1️⃣ Indexing Pipeline (`index.py`)
 
@@ -20,151 +22,193 @@ Steps:
 4. Generate vector embeddings for chunks
 5. Store embeddings locally
 
-This step is run **only once** (or when the dataset changes).
+👉 This step is run **only once** (or when data changes).
 
-### 2️⃣ Query Pipeline (`query.py`)
+---
 
-The query pipeline performs semantic search on the indexed data.
+### 2️⃣ Query + Generation Pipeline (`query.py`)
+
+The query pipeline performs **semantic search + LLM-based answer generation**.
 
 Steps:
 
 1. Accept a user query
 2. Convert query into an embedding
-3. Compare with stored embeddings
-4. Retrieve the most relevant chunks using cosine similarity
-5. Display the top results
+3. Retrieve top-K relevant chunks using cosine similarity
+4. Pass retrieved context to LLM (Gemini)
+5. Generate a final answer based on context
+6. Display answer with source references
 
-## Project Structure
+---
+
+## 🔄 RAG Pipeline
 
 ```
+User Query
+    ↓
+Query Embedding
+    ↓
+Vector Search (Top-K chunks)
+    ↓
+Context Injection
+    ↓
+LLM (Gemini)
+    ↓
+Final Answer
+```
+
+---
+
+## 📁 Project Structure
+
 simple_rag/
 │
 ├── data/
 │ ├── processed/
-│ │      ├──all_chunks.pkl
-│ │      └──chunk_embeddings.npy
+│ │ ├──all_chunks.pkl
+│ │ └──chunk_embeddings.npy
 │ └── raw/
-│      ├──doc1.txt
-│      ├──doc2.txt
-│      └──docn.txt
+│ ├──doc1.txt
+│ ├──doc2.txt
+│ └──docn.txt
 ├── src/
-│   ├── load_data.py
-│   ├── chunk.py
-│   ├── embed.py
-│   ├── retrieve.py
-│   └── generate.py
+│ ├── load_data.py
+│ ├── chunk.py
+│ ├── embed.py
+│ ├── retrieve.py
+│ └── generate.py
 │
+├── chatbot/ # LLM integration module
+│ ├── llm.py # Gemini API interaction
+│ ├── context.py # Conversation handling (optional)
+│ └── utils.py
+
 ├── index.py
 ├── query.py
 ├── config.py
 ├── requirements.txt
 └── README.md
-```
 
-## Components
+---
 
-1️⃣ Data Loading
+## ⚙️ Components
 
-load_data.py loads .txt documents from the dataset directory.
+### 1️⃣ Data Loading
 
-2️⃣ Chunking
+- Loads `.txt` documents from dataset
+- Implemented in `load_data.py`
 
-chunk.py splits documents into fixed-size overlapping chunks.
+---
 
-Chunking helps preserve context during retrieval.
+### 2️⃣ Chunking
 
-Example configuration:
+- Splits documents into smaller chunks
+- Helps improve retrieval accuracy
 
-- CHUNK_SIZE = 250
-- OVERLAP = 0.1
+Example config:
 
-3️⃣ Embedding Generation
+- `CHUNK_SIZE = 250`
+- `OVERLAP = 0.1`
 
-embed.py converts text chunks into vector embeddings using:
+---
 
-- all-MiniLM-L6-v2
+### 3️⃣ Embedding Generation
 
-Embeddings are stored locally as:
+- Uses `sentence-transformers` model:
+  - `all-MiniLM-L6-v2`
+- Converts text into dense vectors
+- Stored as:
+  - `chunk_embeddings.npy`
 
-- data/processed/chunk_embeddings.npy
+---
 
-4️⃣ Retrieval
+### 4️⃣ Retrieval
 
-retrieve.py performs semantic search using cosine similarity.
+- Uses cosine similarity
+- Returns **Top-K relevant chunks**
 
-Steps:
+Key features:
 
-Embed user query
+- Fast NumPy-based search
+- Optional similarity scores
+- Supports debugging of retrieval quality
 
-Compare with stored embeddings
+---
 
-Return top K relevant chunks
+### 5️⃣ LLM Generation (NEW 🚀)
 
-Example:
+- Integrated **Google Gemini API**
+- Uses retrieved chunks as context
+- Generates final answer
 
-- TOP_K = 3
+Prompt design ensures:
 
-## Running the Project
+- Answers are based on context
+- Source references are included
+- Reduces hallucination
+
+---
+
+## ▶️ Running the Project
 
 ### Step 1 — Build the Index
 
 ```bash
-python index.py
-```
+- python index.py
 
-This will load documents, create chunks, generate embeddings and save them.
+### Step 2 — Run Query System
 
-### Step 2 — Start Querying
+- python query.py
 
-```bash
-python query.py
-```
-
-Example:
-
-```
-Ask a question (or type 'exit'): What is machine learning?
+## Example
+Ask a question: What is machine learning?
 
 Top Retrieved Chunks:
 
-Result 1 (score=0.87):
-Machine learning is a branch of artificial intelligence...
-```
+Result 1 (score=0.37): ...
+Result 2 (score=0.36): ...
 
-## Dependencies
+Final Answer:
+Machine learning is a branch of AI...
+(Document 3)
 
-- Python 3.10+
-- sentence-transformers
-- numpy
-- scikit-learn
 
-## Installation
+## 🛠️ Installation
 
-```bash
 git clone https://github.com/YOUR_USERNAME/simple_rag.git
 cd simple_rag
 
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
+
+## Create a .env file:
+- GEMINI_API_KEY=your_api_key_here
+
+## 📊 Features
+
+- ✅ End-to-end RAG pipeline
+- ✅ Semantic search using embeddings
+- ✅ Context-aware answer generation
+- ✅ Source attribution
+- ✅ Modular design (easy to extend)
+
+## ⚠️ Limitations
+
+- Retrieval ranking is not always perfect
+- Small dataset (limited knowledge base)
+- No hybrid search yet
+- No re-ranking or evaluation step
+
+🚀 Future Improvements
+
+-  Hybrid search (keyword + semantic)
+-  Re-ranking models
+-  Self-evaluating RAG system
+-  Vector database (FAISS / Pinecone)
+-  Web UI (Flask / React)
+
+📌 License
+
+This project is for educational purposes.
 ```
-
-## Future Improvements
-
-- Add a Vector Database (FAISS / Chroma / Weaviate)
-- Implement Hybrid Search (BM25 + Semantic Search)
-- Add Re-ranking models
-- Integrate an LLM for answer generation
-- Build a self-evaluating RAG pipeline
-
-## Learning Goals
-
-- Understand how RAG systems work internally
-- Document chunking strategies
-- Embedding generation
-- Vector similarity search
-- Information retrieval for LLMs
-
-## License
-
-This project is for **educational purposes**.
