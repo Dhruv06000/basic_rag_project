@@ -175,8 +175,8 @@ Machine learning is a branch of AI...
 
 ## 🛠️ Installation
 
-git clone https://github.com/YOUR_USERNAME/simple_rag.git
-cd simple_rag
+git clone https://github.com/Dhruv06000/basic_rag_project
+cd basic_rag_project
 
 python -m venv .venv
 .venv\Scripts\activate
